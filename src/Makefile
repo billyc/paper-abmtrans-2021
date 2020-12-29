@@ -14,25 +14,21 @@ endif
 .RECIPEPREFIX = >
 # --------------------------------------------------
 
+TEXFILE = Paper
+
 cur_dir = $(shell pwd)
 
-SRC = src
-TEX = Paper
-
-build: build/$(TEX).pdf
+build: build/$(TEXFILE).pdf
 .PHONY: build
 
 
-build/$(TEX).pdf: Makefile $(shell find $(SRC)/*)
+build/$(TEXFILE).pdf: $(shell find *)
 > rm -rf build
 > mkdir -p build
-> cd $(SRC)
-> pdflatex --output-directory ../build $(TEX).tex
-> cd ../build
-> BIBINPUTS=../$(SRC):~/shared-svn/documents/inputs/bib bibtex $(TEX)
-> cd ../$(SRC)
-> pdflatex --output-directory ../build $(TEX).tex
-> pdflatex --output-directory ../build $(TEX).tex
+> pdflatex --output-directory build $(TEXFILE).tex
+> BIBINPUTS=$(cur_dir):~/shared-svn/documents/inputs/bib bibtex build/$(TEXFILE)
+> pdflatex --output-directory ../build $(TEXFILE).tex
+> pdflatex --output-directory ../build $(TEXFILE).tex
 
 
 serve:

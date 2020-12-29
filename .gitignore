@@ -2,4 +2,5 @@
 *.out
 *.aux
 build
+.DS_Store
 

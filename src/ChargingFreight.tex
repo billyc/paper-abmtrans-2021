@@ -62,7 +62,7 @@
 
 %% Give the author list to appear in the running head
 %% Example \runauth{C.V. Radhakrishnan et al.}
-\runauth{W. Charlton et al.}
+\runauth{W. Charlton}
 
 %% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
 %% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
@@ -190,8 +190,9 @@ shared taxis; data visualization; matsim; public outreach
 
 %\correspondingauthor[*]{Corresponding author. Tel.: +0-000-000-0000 ; fax: +0-000-000-0000.}
 \cortext[cor1]{Corresponding author. Tel.: +49 30 314-23308 ; fax: +49 30 314-26269.}
-\end{frontmatter}
 \email{charlton@vsp.tu-berlin.de}
+
+\end{frontmatter}
 
 %%
 %% Start line numbering here if you want
@@ -211,8 +212,19 @@ shared taxis; data visualization; matsim; public outreach
 It is apparent that the charging strategy plays a major role in answering the posed research question. Therefore, this research focuses on designing the charging infrastructure for the respective MATSim scenario by \citet{MartinsturnerEtAl2020ETrucksFoodABMTrans} by applying and analyzing multiple different approaches to the charging of trucks.
 MATSim is an extensible, activity- and multi-agent based transport simulation, which enables the simulation of large scale scenarios. It follows an iterative process several times until a stable state is reached. Synthetic agents are modeled which have previously defined schedules for their daily activities. The executed plans result from the agent's choice of transport mode and from interactions with other agents (e.g. traffic jam). After the simulation period (one day), the agents’ plans are analyzed and scored. In the next step, the agents can replan their daily schedule by changing the transport mode or route \cite{MATSimBook}. MATSim covers i.a. passenger transport \cite{ZiemkeEtAl2019OpenBerlinScenario} and freight transport \cite{SchroederLiedtke2014FoodDistributionBerlin, ZilskeJoubert2015FreightTrafficInBook}.
 
+
+
+%\begin{figure}[ht]\vspace*{4pt}
+%%\centerline{\includegraphics{fx1}\hspace*{5mm}\includegraphics{fx1}}
+%\centerline{\includegraphics[width=0.8\textwidth]{Lademethodik_Schaubild_SW3.png}}
+%\caption{Process diagram of the charging methodology}
+%\label{fig:lademethodik}
+%\end{figure}
+
 A two-step method is developed (Figure \ref{fig:lademethodik}). First, the activity types and locations, the driven distances, and the number of vehicles, which are at the same time at the same location are derived from the respective MATSim scenario. We use current market data from series production and prototypes to define the battery capacity, the possible charging power, the consumption and the range of the vehicles. The charging demands result from the previously defined vehicle consumption and their simulated mileages from MATSim \cite{Jahn.2020}. Thereafter, we differentiate public charging and depot charging. For public charging, an algorithm identifies the position and number of charging stations by locally resolving the charging demands from MATSim (presented in \cite{Jahn.2020}). For depot charging, the location of the depot defines the position of the charging stations. The number of charging stations has to be defined afterwards. Commercial fleets usually perform charging in depots. The maximum number of charging stations is equal to the number of vehicles if each vehicle has its own charging station for overnight charging. Additionally, the installation of fast charging points enables charging during short-standing times in between tours. The number of vehicles that are simultaneously at the depot and require charging at daytime determines the number of fast charging points. The fast charging points can also be used at nighttime. The maximum number of normal charging stations can be obtained by subtracting the fast charging points from the number of vehicles at this depot (assumption: every vehicle has its own charging station). This number can be minimized by using each charger sequentially and charging several vehicles one after the other. For this purpose, the time that can be used for charging (vehicles are in the depot) is multiplied by the charging power of all chargers at the respective depot to derive the maximum possible charging capacity. Now the charging demands of all vehicles are analyzed and the vehicles are assigned to the charging points. While regarding maximum charging power and available time, the vehicles are charged in a way that the charging capacity is used sufficiently without exceeding it. This problem corresponds to the “subset sum problem”, where a certain number of items should be selected from a set of items in order to reach a target value as high as possible without exceeding it \cite{ALBERTOCAPRARA}. The algorithm passes through the list of trucks and keeps all trucks in the list whose total consumption is less or equal to the possible charging capacity. In this way, a few trucks are distributed to the first charging station. The remaining trucks are distributed iteratively to the other charging stations. If the minimum number of charging points necessary for the sequential overnight charging is less or equal to the number of fast chargers for the opportunity charging in the day time, this is the final number of charging points. If not all vehicles can be charged on the fast chargers sequentially, slow chargers for all remaining vehicles are added. The total number of chargers is the sum of the number of chargers in all depots.
 As the cost of charging stations rises with the offered charging power, the definition of the minimal number and power of stations needed is of high economic value. Therefore, the state of charge (SOC) and the remaining tour lengths of the vehicles are analyzed. Thus, it is possible to determine the minimum energy demand for each vehicle arriving at the depot. Since the time required to pick up new goods is known, the required changing power for the  vehicle can be determined. Since charging stations are available at certain power levels, we run through different scenarios with different charging power levels and check how many of the vehicles can be charged in this way.
+
+
 
 
 \section{Case Study}
@@ -233,11 +245,64 @@ Energy consumption [kWh/m] &  0.00061   &   0.00106  &  0.00150  & 0.00180\\
 \end{table}
 
 
+%\begin{figure}[ht]\vspace*{4pt}
+%\centerline{\includegraphics{fx1}\hspace*{5mm}\includegraphics{fx1}}
+%\centerline{\includegraphics[width=0.7\textwidth]{images/duration_pickup.png}}
+%\caption{Deviation of pickup duration}
+%\label{fig:duration}
+%\end{figure}
+
+
+
+%\begin{figure}[ht]\vspace*{4pt}
+%\centerline{\includegraphics{fx1}\hspace*{5mm}\includegraphics{fx1}}
+%\centerline{\includegraphics[width=0.7\textwidth]{images/consumption.png}}
+%\caption{Deviation of consumption of electric trucks}
+%\label{fig:consumption}
+%\end{figure}
+
+
+
+%\begin{figure}[ht]
+%\centering
+%\begin{subfigure}[c]{0.49\textwidth}
+%    \includegraphics[width=\linewidth]{images/duration_pickup.png}
+%    \caption{Distribution of pickup duration for reloading goods}
+%    \label{fig:duration}
+%\end{subfigure}
+%\begin{subfigure}[c]{0.5\textwidth}
+%    \includegraphics[width=\linewidth]{images/consumption.png}
+%    \caption{Distribution of consumption of electric trucks}
+%    \label{fig:consumption}
+%\end{subfigure}
+%\caption{Distribution of pickup duration and consumption of electric trucks}
+%\end{figure}
+
+
+
+
+
 \section{Results}
 \label{results}
 After tracking the SOC of the trucks, it can be seen that the SOC of some trucks still drops below 0 \% which indicates that not all trucks can complete their route (Fig. \ref{fig:soc}). Therefore, it is not possible to charge all vehicles at the depot even with high charging power as shown in Figure \ref{fig:percentage}. For this reason, this number of vehicles is not considered for planning the infrastructure at the depot. Furthermore, it shows that even with a relatively low charging power of 200 kW or 400 kW a high percentage of vehicles can be sufficiently charged. Charging powers of over 600 kW do not provide better performance of the fleet. As some trucks are below a SOC 0 \%, the calculation of the number of charging stations is executed once with all trucks (279 trucks) and once only with the trucks that make their route (248 trucks at 400 kW charging power). The number of trucks depends on the charging power and can be seen in Figure \ref{fig:percentage}. 248 trucks require a maximum of 181 normal chargers and 61 fast chargers or a minimum of 67 fast chargers, see Table \ref{tab:final_amount}. By installing additional charging points, the entire truck fleet (all 279 trucks) in Berlin can cover its planned route. The number of additional charging stations is related to the charging power of the depot charger and is displayed in Table \ref{tab:additional_amount}. The results show that the supply of food retailing stores using electric vehicles is possible in urban areas. Over 90~\% of conventional trucks can be replaced by electrified trucks when recharging during the day at the depots is applied.
 We show that 67 fast charging points with 400 kW charging power would be needed in the depots. The analysis shows that with a good occupancy rate, about four trucks can use a single charging point overnight. Even with a higher charging power of over 600 kW, the number of charging stations cannot be further reduced because it is limited by the charging stations that are needed simultaneously during the day. The difference of 6 chargers is the result of several depots that do not need fast charging during the day (because the tours starting from these depots are rather short) but still need chargers for over night charging. Charging stations with a power of over 400kW  would therefore be over-dimensioned. Chung \cite{Chung.20200928} comes to a similar conclusion in his analysis.
 Since the case study of the food retailing in Berlin contains some really long routes, state of the art BEV-technology cannot complete these tours, even with intermediate charging at the depot. This explains the permanent deviation in Figure \ref{fig:percentage}. By setting up a further 31 HPOCs in public places, all electrified trucks could manage their route. 400 kW charging power is also sufficient for these stations if a 30-minute charging stop is planned. However, this would mean that the trucks that have an extra charging stop would end their tours up to 30 minutes later. Other than the charging during loading times, these extra 30 minutes would be unproductive time.
+
+
+%\begin{figure}[ht]
+%\centering
+%\begin{subfigure}[c]{0.5\textwidth}
+%    \includegraphics[width=\linewidth]{images/soc.png}
+%    \caption{SOC of all trucks over the day with 400 kW charging power}
+%    \label{fig:soc}
+%\end{subfigure}
+%\begin{subfigure}[c]{0.49\textwidth}
+%    \includegraphics[width=\linewidth]{images/can_charged_new.png}
+%    \caption{Percentage of vehicles that can be charged with specific charging power}
+%    \label{fig:percentage}
+%\end{subfigure}
+%\caption{SOC analysis of all trucks with depot charging only}
+%\end{figure}
 
 \begin{table}[ht]
 \caption{Resulting number of chargers for the different charging strategies}
@@ -268,38 +333,44 @@ Number of HPOCs & 36 & 31 & 27 & 27 \\
 \section{Conclusion and Outlook}
 \label{conclusion}
 We presented a methodology to determine possible charging strategies for urban freight transport. Therefore, we provided current literature on charging and transport simulation. We analyzed the MATSim case study on the food retailing industry and found that with 31 HPOCs all tours can be operated. In the depots, 214 normal combined with 65 fast charging points are sufficient to charge the trucks. If the vehicles share the charging points overnight, this number is reduced to 71 fast charging points with 400 kW. With higher charging power, the share of fully charged vehicles hardly increases.
-
 Our results show that the electrification of the food trade is technically feasible. However, it is necessary to consider the economic side, which was not taken into account in this analysis. This could be investigated in detail with a Total Cost of Ownership analysis. For even better performance, the next step is to consider the ranges of the truck types in the MATSim model using the range constraint presented in \cite{EwertEtAl2020_VRPDistanceConstraint_accepted} in combination with the here presented method to determine adequate charging strategies. It is expected that the number of trucks and thus also the number of charging stations will increase slightly, since the 9 \% of trucks that would currently not be able to complete their route, will be distributed among several trucks.This way however, the unproductive recharging time at HPOCs could be avoided. Further research should investigate the limits of electrification, e.g. by running scenarios with BEVs with a higher battery capacity, even if this results in less payload due the higher weight of the batteries. This could be extended by running the electrification scenarios with electric trucks with different battery capacities for each vehicle type. The presented method is transferable to various transport sectors. MATSim scenarios including for example personal commercial transport could be analyzed as well.
 
 
-\section{Acknowledgements}
-This research was funded in part by the German Federal Ministry of Transport and Digital Infrastructure (funding number 16AVF2160)
 
-\bibliography{bibliography}
+
+
+\section*{Acknowledgement}
+This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) -- 398051144.
+
+
+
+
+
+%\bibliography{bibliography_freight.bib}
 \bibliographystyle{elsarticle-harv}
 
-% \begin{thebibliography}{1}
+\begin{thebibliography}{1}
 
-%   \bibitem{R1}
-%   Horni, A., Nagel, K., \& Axhausen, K. W. (Eds.). (2016). \textit{The multi-agent transport simulation MATSim} (p. 618). London: Ubiquity Press.
+  \bibitem{R1}
+  Horni, A., Nagel, K., \& Axhausen, K. W. (Eds.). (2016). \textit{The multi-agent transport simulation MATSim} (p. 618). London: Ubiquity Press.
 
-%   \bibitem{R2}
-%   Strippgen, David (2016) \textit{OTFVis: MATSim’s Open-Source Visualizer}. In Andreas Horni, Kai Nagel, Kay W. Axhausen (Eds.): The Multi-Agent Transport Simulation MATSim: Ubiquity Press, pp. 225-–234.
+  \bibitem{R2}
+  Strippgen, David (2016) \textit{OTFVis: MATSim’s Open-Source Visualizer}. In Andreas Horni, Kai Nagel, Kay W. Axhausen (Eds.): The Multi-Agent Transport Simulation MATSim: Ubiquity Press, pp. 225-–234.
 
-%   \bibitem{R3}
-%   Rieser, Marcel (2016) \textit{Senozon Via}. In Andreas Horni, Kai Nagel, Kay W. Axhausen (Eds.): The Multi-Agent Transport Simulation MATSim: Ubiquity Press, pp. 219–-224.
+  \bibitem{R3}
+  Rieser, Marcel (2016) \textit{Senozon Via}. In Andreas Horni, Kai Nagel, Kay W. Axhausen (Eds.): The Multi-Agent Transport Simulation MATSim: Ubiquity Press, pp. 219–-224.
 
-%   \bibitem{R4}
-%   Free Software Soundation (2007) \textit{GNU General Public License}, Version 3.
-%   URL: www.gnu.org/licenses/gpl.html
+  \bibitem{R4}
+  Free Software Soundation (2007) \textit{GNU General Public License}, Version 3.
+  URL: www.gnu.org/licenses/gpl.html
 
-%   \bibitem{R5}
-%   Satyanarayan, A., Moritz, D., Wongsuphasawat, K., and Heer, J. (2016) \textit{Vega-Lite: A Grammar of Interactive Graphics}. IEEE Transactions on Visualization and Computer Graphics, Volume 23, Issue 1. DOI: doi.org/10.1109/TVCG.2016.2599030
+  \bibitem{R5}
+  Satyanarayan, A., Moritz, D., Wongsuphasawat, K., and Heer, J. (2016) \textit{Vega-Lite: A Grammar of Interactive Graphics}. IEEE Transactions on Visualization and Computer Graphics, Volume 23, Issue 1. DOI: doi.org/10.1109/TVCG.2016.2599030
 
-%   \bibitem{R6}
-%   Wilkinson, Leland (2005) \textit{The Grammar of Graphics}, Second Edition. Springer Press, Chicago, USA. DOI: doi.org/10.1007/0-387-28695-0
+  \bibitem{R6}
+  Wilkinson, Leland (2005) \textit{The Grammar of Graphics}, Second Edition. Springer Press, Chicago, USA. DOI: doi.org/10.1007/0-387-28695-0
 
-%   \end{thebibliography}
+  \end{thebibliography}
 
 
 \end{document}
