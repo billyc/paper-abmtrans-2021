@@ -1,37 +1,3 @@
-% Template for Elsevier CRC journal article
-% version 1.2 dated 09 May 2011
-
-% This file (c) 2009-2011 Elsevier Ltd.  Modifications may be freely made,
-% provided the edited file is saved under a different name
-
-% This file contains modifications for Procedia Computer Science
-
-% Changes since version 1.1
-% - added "procedia" option compliant with ecrc.sty version 1.2a
-%   (makes the layout approximately the same as the Word CRC template)
-% - added example for generating copyright line in abstract
-
-%-----------------------------------------------------------------------------------
-
-%% This template uses the elsarticle.cls document class and the extension package ecrc.sty
-%% For full documentation on usage of elsarticle.cls, consult the documentation "elsdoc.pdf"
-%% Further resources available at http://www.elsevier.com/latex
-
-%-----------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                          %%
-%% Important note on usage                                  %%
-%% -----------------------                                  %%
-%% This file should normally be compiled with PDFLaTeX      %%
-%% Using standard LaTeX should work but may produce clashes %%
-%%                                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% The '3p' and 'times' class options of elsarticle are used for Elsevier CRC
-%% The 'procedia' option causes ecrc to approximate to the Word template
 \documentclass[3p,times,procedia]{elsarticle}
 \flushbottom
 
@@ -48,9 +14,6 @@
 \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 
-%% The ecrc package defines commands needed for running heads and logos.
-%% For running heads, you can set the journal name, the volume, the starting page and the authors
-
 %% set the volume if you know. Otherwise `00'
 \volume{00}
 
@@ -64,218 +27,148 @@
 %% Example \runauth{C.V. Radhakrishnan et al.}
 \runauth{W. Charlton et al.}
 
-%% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
-%% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
-%% e.g. if \jid{yspmi} the system will look for a file yspmilogo.pdf
-%% Otherwise the content of \jnltitlelogo will be set between horizontal lines as a default logo
-
 %% Give the abbreviation of the Journal.
 \jid{procs}
 
-%% Give a short journal name for the dummy logo (if needed)
-%\jnltitlelogo{Computer Science}
-
-%% Hereafter the template follows `elsarticle'.
-%% For more details see the existing template files elsarticle-template-harv.tex and elsarticle-template-num.tex.
-
-%% Elsevier CRC generally uses a numbered reference style
-%% For this, the conventions of elsarticle-template-num.tex should be followed (included below)
-%% If using BibTeX, use the style file elsarticle-num.bst
-
-%% End of ecrc-specific commands
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% The amssymb package provides various useful mathematical symbols
-
 \usepackage{amssymb}
-%% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
-
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers after \end{frontmatter}.
-%% \usepackage{lineno}
-
-%% natbib.sty is loaded by default. However, natbib options can be
-%% provided with \biboptions{...} command. Following options are
-%% valid:
-
-%%   round  -  round parentheses are used (default)
-%%   square -  square brackets are used   [option]
-%%   curly  -  curly braces are used      {option}
-%%   angle  -  angle brackets are used    <option>
-%%   semicolon  -  multiple citations separated by semi-colon
-%%   colon  - same as semicolon, an earlier confusion
-%%   comma  -  separated by comma
-%%   numbers-  selects numerical citations
-%%   super  -  numerical citations as superscripts
-%%   sort   -  sorts multiple citations according to order in ref. list
-%%   sort&compress   -  like sort, but also compresses numerical citations
-%%   compress - compresses without sorting
-%%
-%% \biboptions{authoryear}
-
-% \biboptions{}
 
 % if you have landscape tables
 \usepackage[figuresright]{rotating}
-%\usepackage{harvard}
-% put your own definitions here:x
-%   \newcommand{\cZ}{\cal{Z}}
-%   \newtheorem{def}{Definition}[section]
-%   ...
 
 % add words to TeX's hyphenation exception list
 %\hyphenation{author another created financial paper re-commend-ed Post-Script}
 
 % declarations for front matter
 
-
 \begin{document}
 \begin{frontmatter}
 
-%% Title, authors and addresses
+\dochead{The 9th International Workshop on Agent-based Mobility, Traffic and Transportation Models, \\ (ABMTRANS) March 23 - 26, 2021, Warsaw, Poland}%
 
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for the associated footnote;
-%% use the fnref command within \author or \address for footnotes;
-%% use the fntext command for the associated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for the associated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%%
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \address{Address\fnref{label3}}
-%% \fntext[label3]{}
-
-\dochead{FIXME The 9th International Workshop on Agent-based Mobility, Traffic and Transportation Models, \\ (ABMTRANS) March 23 - 26, 2021, Warsaw, Poland}%
-%% Use \dochead if there is an article header, e.g. \dochead{Short communication}
-%% \dochead can also be used to include a conference title, if directed by the editors
-%% e.g. \dochead{17th International Conference on Dynamical Processes in Excited States of Solids}
-
-\title{Open-Source Web-Based Visualizer for Dynamic-Response Shared Taxi Simulations}
-
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{<author name>}
-%% \address[label1]{<address>}
-%% \address[label2]{<address>}
+\title{Open-Source Web-Based Visualizer for \\ Dynamic-Response Shared Taxi Simulations}
 
 \author[a]{William Charlton}
+\author[a]{Gregor Leich}
+\author[a]{Ihab Kaddoura}
+\author[a]{Kai Nagel}
 
 \address[a]{Technische Universität Berlin, Chair of Transport Systems Planning and Transport Telematics, Straße des 17. Juni 135, 10623 Berlin, Germany}
 
 %% ----- ABSTRACT -----
 \begin{abstract}
-We developed a unique, web-based public outreach tool used by transit agencies investigating future shared-taxi fleet scenarios. The tool is in operation for several cities and rural regions including Berlin and several small regions in western Germany. The project goal is to explore the possibility of augmenting or even replacing fixed-route transit lines in less-developed areas with automated, connected, shared taxi fleets. Since those fleets don’t yet exist outside of Arizona, our team used an agent-based transport microsimulation model (MATSim) to develop various scenarios and produce results.
+
+We describe a unique, web-based data visualization portal developed for use by researchers and public transit agencies investigating future shared-taxi fleet scenarios. Augmenting or even replacing fixed-route transit lines with automated, connected, shared taxi fleets may be a desirable alternative in less-densely developed areas. The MATSim agent-based transport microsimulation model is used to study scenarios including status quo; dynamically-dispatched fleets with drivers; and fully autonomous fleets. This paper focuses on a data visualization portal which includes many interactive views, such as agent (taxi) movements color-coded by number of passengers and trip request origins and destinations, changes in roadway and passenger volumes compared to a base case, and more. The agent-based simulation covers a 24 hour simulation period; analysts can hone in on specific times of day to examine, e.g. school pickup/drop-offs or commute trips connecting to rail stations. The tool is in operation for several small cities and rural regions in Germany and was successfully used as an outreach tool in public meetings. In addition, developers of the MATSim DRT extension found the visualizations particularly useful for debugging both the algorithms and the scenario definitions. All code is open source and, while this specific study has a very specific use case, the portal has an extensible design that could be modified for other purposes.
+
 \end{abstract}
 
 \begin{keyword}
 shared taxis; data visualization; matsim; public outreach
-
-%% keywords here, in the form: keyword \sep keyword
-
-%% PACS codes here, in the form: \PACS code \sep code
-
-%% MSC codes here, in the form: \MSC code \sep code
-%% or \MSC[2008] code \sep code (2000 is the default)
-
 \end{keyword}
+
 
 %\correspondingauthor[*]{Corresponding author. Tel.: +0-000-000-0000 ; fax: +0-000-000-0000.}
 \cortext[cor1]{Corresponding author. Tel.: +49 30 314-23308 ; fax: +49 30 314-26269.}
 \end{frontmatter}
+
 \email{charlton@vsp.tu-berlin.de}
 
-%%
-%% Start line numbering here if you want
-%%
-% \linenumbers
-
-%% main text
-
-%\enlargethispage{-7mm}
+%% ----- INTRODUCTION -----
 \section{Introduction}
 \label{introduction}
 
+Augmenting or replacing fixed-route transit lines with automated, connected, shared taxi fleets may be a desirable alternative for transit agencies in less-densely developed areas. The economics of fixed-route transit are difficult to square with sparse development patterns [*], and the advent of private ride-hailing services adds the "shared taxi" concept to people's travel options. The same technologies used by private ride-hailing, however, can also be modified and applied to future transit services.
+
+In this study, a new dynamic-response shared taxi service, or "DRT", is examined as an alternative approach to serving the population of rural areas and less-dense portions of urban regions. Dynamic-response transit is analyzed using the MATSim agent-based transport microsimulation model. MATSim is an extensible, activity- and multi-agent based transport simulation, which enables the simulation of large scale scenarios. \cite{MATSimBook}. Crucially, MATSim simulates passenger transport in both private and public modes \cite{ZiemkeEtAl2019OpenBerlinScenario}.
+
+The existing methodology behind using MATSim to simulate DRT is well-described by [*] and is not the focus of this paper. Rather, in the course of the effort to develop, analyze and compare various DRT scenarios, a need arose to create some truly unique data visualizations that could assist in improving and displaying the DRT scenarios themselves. A web-based portal is the result of this research. The portal includes many interactive views, such as agent (taxi) movements color-coded by number of passengers and trip request origins and destinations, changes in roadway and passenger volumes compared to a base case, and more. The agent-based simulation covers a 24 hour simulation period; analysts can hone in on specific times of day to examine, e.g. school pickup/drop-offs or commute trips connecting to rail stations.
+
+The tool is now in operation for several small cities and rural regions in Germany, and was successfully used as an outreach tool in online public meetings. Project partners at transit agencies are interested in understanding the detailed implications of the DRT simulations, and without a visual, interactive component, that would be extremely difficult to provide.
+
+Furthermore, developers of the MATSim DRT extension found the visualizations particularly useful for debugging both the algorithms and the scenario definitions. The latest implementions of MATSim include extensive DRT capabilities whose methods are continually being optimized and improved.
+
+All code for MATSim and the visualization portal is open source and, while this specific study has a quite esoteric use case, the portal has an extensible design that could be modified for other purposes.
+
+%% ----- EXISTING TOOLS AND RESEARCH -----
+\section{Motivation: The State of Existing Tools}
+\label{motivation}
+
+- Existing tools are incapable of visualizing the outputs of the DRT module of MATSim in an efficient manner
+- Authors of the DRT modules of MATSim expressed an unfulfilled need to debug the code
+- Previous research on web-based MATSim visualization provides a proof-of-concept and extensible open-source platform on which to build DRT-specific visualizations; an obvious extension!
+- Agent-based microsimulation is quite complex and the reams of data and extensive details are not appropriate for public outreach and stakeholder meetings. PDF reports and powerpoint slides are the norm, but there is an opportunity here to build something truly interactive, possibly an order of magnitude more useful.
+
+%% ----- REQUIREMENTS -----
+\section{Requirements}
+\label{requirements}
+
+- Open source code so others may build upon it and extend it
+- Works in any modern browser. IE11 and small players, no. (pull from other doc)
+- Must somehow manage massive output datasets from MATSim runs. Browsers can't load 800MB files support massive datasets; requires some sort of output post-processing and storage of results
+- Visually compelling and easy to organize results for various scenarios
+- Public facing scenarios and private debugging areas
 
 
-\section{Methodology}
-\label{methodology}
-It is apparent that the charging strategy plays a major role in answering the posed research question. Therefore, this research focuses on designing the charging infrastructure for the respective MATSim scenario by \citet{MartinsturnerEtAl2020ETrucksFoodABMTrans} by applying and analyzing multiple different approaches to the charging of trucks.
-MATSim is an extensible, activity- and multi-agent based transport simulation, which enables the simulation of large scale scenarios. It follows an iterative process several times until a stable state is reached. Synthetic agents are modeled which have previously defined schedules for their daily activities. The executed plans result from the agent's choice of transport mode and from interactions with other agents (e.g. traffic jam). After the simulation period (one day), the agents’ plans are analyzed and scored. In the next step, the agents can replan their daily schedule by changing the transport mode or route \cite{MATSimBook}. MATSim covers i.a. passenger transport \cite{ZiemkeEtAl2019OpenBerlinScenario} and freight transport \cite{SchroederLiedtke2014FoodDistributionBerlin, ZilskeJoubert2015FreightTrafficInBook}.
+%% ----- EXPERIMENTS -----
+\section{The Visualization Platform}
+\label{platform}
 
-A two-step method is developed (Figure \ref{fig:lademethodik}). First, the activity types and locations, the driven distances, and the number of vehicles, which are at the same time at the same location are derived from the respective MATSim scenario. We use current market data from series production and prototypes to define the battery capacity, the possible charging power, the consumption and the range of the vehicles. The charging demands result from the previously defined vehicle consumption and their simulated mileages from MATSim \cite{Jahn.2020}. Thereafter, we differentiate public charging and depot charging. For public charging, an algorithm identifies the position and number of charging stations by locally resolving the charging demands from MATSim (presented in \cite{Jahn.2020}). For depot charging, the location of the depot defines the position of the charging stations. The number of charging stations has to be defined afterwards. Commercial fleets usually perform charging in depots. The maximum number of charging stations is equal to the number of vehicles if each vehicle has its own charging station for overnight charging. Additionally, the installation of fast charging points enables charging during short-standing times in between tours. The number of vehicles that are simultaneously at the depot and require charging at daytime determines the number of fast charging points. The fast charging points can also be used at nighttime. The maximum number of normal charging stations can be obtained by subtracting the fast charging points from the number of vehicles at this depot (assumption: every vehicle has its own charging station). This number can be minimized by using each charger sequentially and charging several vehicles one after the other. For this purpose, the time that can be used for charging (vehicles are in the depot) is multiplied by the charging power of all chargers at the respective depot to derive the maximum possible charging capacity. Now the charging demands of all vehicles are analyzed and the vehicles are assigned to the charging points. While regarding maximum charging power and available time, the vehicles are charged in a way that the charging capacity is used sufficiently without exceeding it. This problem corresponds to the “subset sum problem”, where a certain number of items should be selected from a set of items in order to reach a target value as high as possible without exceeding it \cite{ALBERTOCAPRARA}. The algorithm passes through the list of trucks and keeps all trucks in the list whose total consumption is less or equal to the possible charging capacity. In this way, a few trucks are distributed to the first charging station. The remaining trucks are distributed iteratively to the other charging stations. If the minimum number of charging points necessary for the sequential overnight charging is less or equal to the number of fast chargers for the opportunity charging in the day time, this is the final number of charging points. If not all vehicles can be charged on the fast chargers sequentially, slow chargers for all remaining vehicles are added. The total number of chargers is the sum of the number of chargers in all depots.
-As the cost of charging stations rises with the offered charging power, the definition of the minimal number and power of stations needed is of high economic value. Therefore, the state of charge (SOC) and the remaining tour lengths of the vehicles are analyzed. Thus, it is possible to determine the minimum energy demand for each vehicle arriving at the depot. Since the time required to pick up new goods is known, the required changing power for the  vehicle can be determined. Since charging stations are available at certain power levels, we run through different scenarios with different charging power levels and check how many of the vehicles can be charged in this way.
+Platform
 
+- MatHub platform had extensive back-end server infrastructure (six server images for user authentication, file storage, post-processing, real-time animations). But it sucked
+- MatHub front-end used MapBox API, but size of datasets made all but the simplest of scenarios difficult or impossible to visualize within browser memory constraints.
 
-\section{Case Study}
-\label{casestudy}
-\citet{MartinsturnerEtAl2020ETrucksFoodABMTrans} include different vehicle types for which we define specific properties such as the battery capacity, and the consumption (see  Table \ref{tab:specs}). To investigate the effects of high power charging, the maximum charging power for all vehicles is set to 1,000 kW. This might not reflect the manufacturer's data of the reference vehicles. However, it reflects the current state of the art and research for heavy BEVs \cite{Zhu.21720202202020}. First, we analyze the transport simulation in terms of activity duration and charging demands. We define that charging infrastructure is only available at the depots of the carriers. For this reason, we consider the standing time of the trucks in the depots as the possible time span for (re)charging (Figure \ref{fig:duration}). Next, we quantify the energy consumption of the trucks before they reach the depot.  Depending on the traffic situation, a specific consumption is considered in the calculations. The maximum speed allowed on the link is compared to the simulated average speed. This ratio allows a statement about the traffic situation. The consumption is adjusted accordingly. If the average speed is much lower than the maximum speed, this indicates stop and go traffic, and increased consumption by 30 \% on this link is assumed. A similar conclusion was reached by \citet{Li.2014}, who analyzed stop and go traffic and its effects. The consumption distribution of the different vehicles is shown in Figure \ref{fig:consumption}. The optimum charging power is determined by analyzing what percentage of vehicles with a certain charging power can manage their route. For complete electrification, we assume that the trucks are able to charge at high performance opportunity chargers (HPOC) at strategic points in the city (access to city highways etc) if they are not able to complete their routes otherwise. The number of chargers and their charging power is determined by using the above-mentioned method for public charging.
-\begin{table}[ht]
-\caption{Vehicle specifications \cite{MartinsturnerEtAl2020ETrucksFoodABMTrans}}
-\begin{tabular*}{\hsize}{@{\extracolsep{\fill}}lllll@{}}
-\toprule
-Vehicle type & Light Duty & Medium Duty & Medium Duty & Heavy Duty\\
-\colrule
-Weight [t] &  7.5   &   18  &  26  &  40\\
-Battery capacity gross (net) [kWh]  &  87 (60.9)   &   122 (85.4)  &  286 (200.2)  &  443 (310.1)\\
-Energy consumption [kWh/m] &  0.00061   &   0.00106  &  0.00150  & 0.00180\\
-\botrule
-\label{tab:specs}
-\end{tabular*}
-\end{table}
+- Covid-19 portal threw out everything except centralized file storage, and relied on the analyst to run standardized post-processing scripts and store those smaller datasets. First experiments with ThreeJS were successful but very time consuming to write
+- deck.gl proved far more performant than MapBox, also open source, and easier to write custom "shaders" using deck.gl examples
+
+DRT animation
+
+- Initially just the vehicle animations
+- Analysts requested color by occupancy
+- origin/destination "flyovers"
 
 
+%% ----- DRT VISUALIZATIONS -----
+\section{Dynamic-Response Taxi Visualizations}
+\label{drtviz}
+
+{Strippgen2016}
+Back-end consists only of file storage. Our research team has an existing "Subversion" server which handles large files efficiently and retains file version history. Other file storage solutions such as cloud-based AWS etc could also be implemented (but weren't) -- all file management goes through a single File API which could have multiple back-ends.
+
+Front end code is a "single page app" that can be hosted on any web server platform. We are using Github Pages because it is free and fast.
+
+Web portal front-end has a simple text-based configuration file which lists the scenarios to be publicly viewable
+- Analyst runs agent-based model and post-processing scripts to create road/transit network and DRT animation files
+- etc
+
+%% ----- RESULTS -----
 \section{Results}
 \label{results}
-After tracking the SOC of the trucks, it can be seen that the SOC of some trucks still drops below 0 \% which indicates that not all trucks can complete their route (Fig. \ref{fig:soc}). Therefore, it is not possible to charge all vehicles at the depot even with high charging power as shown in Figure \ref{fig:percentage}. For this reason, this number of vehicles is not considered for planning the infrastructure at the depot. Furthermore, it shows that even with a relatively low charging power of 200 kW or 400 kW a high percentage of vehicles can be sufficiently charged. Charging powers of over 600 kW do not provide better performance of the fleet. As some trucks are below a SOC 0 \%, the calculation of the number of charging stations is executed once with all trucks (279 trucks) and once only with the trucks that make their route (248 trucks at 400 kW charging power). The number of trucks depends on the charging power and can be seen in Figure \ref{fig:percentage}. 248 trucks require a maximum of 181 normal chargers and 61 fast chargers or a minimum of 67 fast chargers, see Table \ref{tab:final_amount}. By installing additional charging points, the entire truck fleet (all 279 trucks) in Berlin can cover its planned route. The number of additional charging stations is related to the charging power of the depot charger and is displayed in Table \ref{tab:additional_amount}. The results show that the supply of food retailing stores using electric vehicles is possible in urban areas. Over 90~\% of conventional trucks can be replaced by electrified trucks when recharging during the day at the depots is applied.
-We show that 67 fast charging points with 400 kW charging power would be needed in the depots. The analysis shows that with a good occupancy rate, about four trucks can use a single charging point overnight. Even with a higher charging power of over 600 kW, the number of charging stations cannot be further reduced because it is limited by the charging stations that are needed simultaneously during the day. The difference of 6 chargers is the result of several depots that do not need fast charging during the day (because the tours starting from these depots are rather short) but still need chargers for over night charging. Charging stations with a power of over 400kW  would therefore be over-dimensioned. Chung \cite{Chung.20200928} comes to a similar conclusion in his analysis.
-Since the case study of the food retailing in Berlin contains some really long routes, state of the art BEV-technology cannot complete these tours, even with intermediate charging at the depot. This explains the permanent deviation in Figure \ref{fig:percentage}. By setting up a further 31 HPOCs in public places, all electrified trucks could manage their route. 400 kW charging power is also sufficient for these stations if a 30-minute charging stop is planned. However, this would mean that the trucks that have an extra charging stop would end their tours up to 30 minutes later. Other than the charging during loading times, these extra 30 minutes would be unproductive time.
 
-\begin{table}[ht]
-\caption{Resulting number of chargers for the different charging strategies}
-\begin{tabular*}{\hsize}{@{\extracolsep{\fill}}llllll@{}}
-\toprule
- & Trucks  & Normal charger & Fast charger & HPOC\\
-\colrule
-Maximum (used by only one vehicle overnight) &  248   &  187  &  61  &  -\\
-Minimum (400 kW charger used by multiple vehicles overnight)  &  248   &  -  &  67  &  -\\
-Maximum with additional charger (used by only one vehicle overnight) &  279   &  214  &  65  &  31\\
-Minimum with additional charger (400 kW charger used by multiple vehicles overnight)  &  279   &  -  &  71  &  31\\
-\botrule
-\label{tab:final_amount}
-\end{tabular*}
-\end{table}
+- It works!
+- Website
+- Six public scenarios
+- Gregor's findings
+- Transit agency public outreach meetings
 
-\begin{table}[ht]
-\caption{Additional HPOCs depending on the charging power}
-\begin{tabular*}{\hsize}{@{\extracolsep{\fill}}lllll@{}}
-\toprule
-Charging power depot charger [kW] & 200 & 400 & 600 & 800 \\
-Number of HPOCs & 36 & 31 & 27 & 27 \\
-\botrule
-\label{tab:additional_amount}
-\end{tabular*}
-\end{table}
 
-\section{Conclusion and Outlook}
-\label{conclusion}
-We presented a methodology to determine possible charging strategies for urban freight transport. Therefore, we provided current literature on charging and transport simulation. We analyzed the MATSim case study on the food retailing industry and found that with 31 HPOCs all tours can be operated. In the depots, 214 normal combined with 65 fast charging points are sufficient to charge the trucks. If the vehicles share the charging points overnight, this number is reduced to 71 fast charging points with 400 kW. With higher charging power, the share of fully charged vehicles hardly increases.
+FROM GREGOR
 
-Our results show that the electrification of the food trade is technically feasible. However, it is necessary to consider the economic side, which was not taken into account in this analysis. This could be investigated in detail with a Total Cost of Ownership analysis. For even better performance, the next step is to consider the ranges of the truck types in the MATSim model using the range constraint presented in \cite{EwertEtAl2020_VRPDistanceConstraint_accepted} in combination with the here presented method to determine adequate charging strategies. It is expected that the number of trucks and thus also the number of charging stations will increase slightly, since the 9 \% of trucks that would currently not be able to complete their route, will be distributed among several trucks.This way however, the unproductive recharging time at HPOCs could be avoided. Further research should investigate the limits of electrification, e.g. by running scenarios with BEVs with a higher battery capacity, even if this results in less payload due the higher weight of the batteries. This could be extended by running the electrification scenarios with electric trucks with different battery capacities for each vehicle type. The presented method is transferable to various transport sectors. MATSim scenarios including for example personal commercial transport could be analyzed as well.
+Not sure whether this helps, but is what comes to my mind: The drt viz helped us understand better how the drt code works and find some issues, e.g. when the system is congested weird things can happen and a large group of vehicles with one passenger per vehicle only moves from the same start to the same destination at the same time (in an attempt to save each passenger a few seconds it serves them separately and wastes vehicles which then are missing for the next requests). It is really nice to have requests and vehicle occupancy shown, Via did only the latter after some pre-processing. Other than that the website obviously made the avoev workshops easier. Instead of only sharing our screen we could hand out a website where people could click themselves. Unfortunately it seemed that those listeners did not use the website a lot and rather kept listening to us. Some hypotheses: Maybe because sometimes a group of people shared one computer and their internet connection was bad, maybe because they are not used to that kind of interaction (maybe they always just listen to others' presentations unless they present themselve and discuss verbally later). For us the other plots like pax/link or veh/link are not entirely new, some used QGis to produce those. However maybe the website forced us to actually produce all those plots systematically instead of an "we could do that plot, but maybe it's not necessary, let's look into something else or raw data only to avoid the hassle of setting up QGis..."
 
+%% ----- CONCLUSIONS -----
+\section{Conclusions and Outlook}
+\label{conclusions}
+
+This is the platform we've been trying to build for three years. It's efficient, extensible, and open source.
+
+Further enhancements to the underlying platform and to the DRT visualization capabilities are expected.
+
+Plugin architecture means that other javascript developers can write plugins for their own agent-based models and their own use cases.
 
 \section{Acknowledgements}
 This research was funded in part by the German Federal Ministry of Transport and Digital Infrastructure (funding number 16AVF2160)
 
-\bibliography{bibliography}
+\bibliography{vsp,ref,book}
 \bibliographystyle{elsarticle-harv}
 
 % \begin{thebibliography}{1}
@@ -300,6 +193,5 @@ This research was funded in part by the German Federal Ministry of Transport and
 %   Wilkinson, Leland (2005) \textit{The Grammar of Graphics}, Second Edition. Springer Press, Chicago, USA. DOI: doi.org/10.1007/0-387-28695-0
 
 %   \end{thebibliography}
-
 
 \end{document}
