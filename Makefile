@@ -9,7 +9,7 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 ifeq ($(origin .RECIPEPREFIX), undefined)
-  $(error Your Make does not support .RECIPEPREFIX. Please use GNU Make 4.0 or later)
+  $(error Your Make does not support .RECIPEPREFIX. Use GNU Make 4.0 or later)
 endif
 .RECIPEPREFIX = >
 # --------------------------------------------------
@@ -34,10 +34,11 @@ build/$(TEX).pdf: Makefile $(shell find $(SRC)/*)
 > pdflatex --output-directory ../build $(TEX).tex
 > pdflatex --output-directory ../build $(TEX).tex
 
-
 serve:
-> inotifywait -qrm --event modify src/* | while read file; do make; done
+> fswatch -o src | xargs -n1 -I{} gmake
 .PHONY: serve
+
+#> inotifywait -qrm --event modify src/* | while read file; do make; done
 
 
 clean:
@@ -46,4 +47,3 @@ clean:
 > rm -rf $(SRC)/*.out
 > rm -rf build/*
 .PHONY: clean
-
