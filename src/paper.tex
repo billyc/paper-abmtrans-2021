@@ -149,13 +149,42 @@ A 24-hour agent-based interactive animation of DRT vehicles traversing the roadw
 
 Each of these components can be turned on or off to assist in reducing clutter in the animation. The 3D map can be zoomed or panned and its pitch angle adjusted to assist in viewing.
 
-[[PIC OF ANIMATION OR TWO ]]
+\begin{figure}[ht]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+   \includegraphics[width=\linewidth]{images/fig-drt-vehicles.png}
+   \caption{DRT vehicles and routes}
+   \label{fig:vehicles}
+\end{subfigure}
+\begin{subfigure}[c]{0.4\textwidth}
+   \includegraphics[width=\linewidth]{images/fig-drt-flyovers.png}
+   \caption{DRT passenger origins and destinations}
+   \label{fig:flyover}
+\end{subfigure}
+\caption{Dynamic Response Transit (DRT) animation screenshots}
+\end{figure}
+
 
 \subsection{DRT Passenger and Vehicle volumes}
 
 Aggregate summaries of roadway volumes depict total DRT pasenger or vehicle volumes in the entire simulation, or for specific times of day. The user can click on a specific link to see the diurnal (time of day) distribution of trips for that link, or can modify the time window being displayed for all links from total to a specific range, such as 6 A.M. to 9 A.M. if morning commute trips are being studied.
 
-Difference plots are also generated for some scenarios, especially comparing the DRT scenarios to the "base case" depicting current conditions.
+Difference plots compare the DRT scenarios to the "base case" depicting current conditions.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[c]{0.32\textwidth}
+     \includegraphics[width=\linewidth]{images/fig-link-vols.png}
+     \caption{DRT Vehicle volumes, daily aggregation }
+     \label{fig:vehicles}
+  \end{subfigure}
+  \begin{subfigure}[c]{0.32\textwidth}
+     \includegraphics[width=\linewidth]{images/fig-mode-share.png}
+     \caption{Mode shift, example DRT alternative vs. base case}
+     \label{fig:flyover}
+  \end{subfigure}
+  \caption{Dynamic Response Transit (DRT) further visualization examples}
+\end{figure}
 
 \subsection{Cross-Scenario Modal Shifts}
 
@@ -174,6 +203,8 @@ Each outreach meeting started with technical staff describing the study, the age
 
 Some direct feedback from analysts included:
 
+\small{
+
 \begin{displayquote}\emph{
   The drt viz helped us understand better how the drt code works and find some issues, e.g. when the system is congested weird things can happen and a large group of vehicles with one passenger per vehicle only moves from the same start to the same destination at the same time (in an attempt to save each passenger a few seconds it serves them separately and wastes vehicles which then are missing for the next requests). It is really nice to have requests and vehicle occupancy shown, Via did only the latter after some pre-processing.
 }\end{displayquote}
@@ -185,6 +216,8 @@ Some direct feedback from analysts included:
 \begin{displayquote}\emph{
   The other plots like passengers/link or vehicles/link are not entirely new; some used QGis to produce those. However, the website forced us to actually produce all those plots systematically instead of 'we could do that plot, but maybe it's not necessary, let's look into something else or raw data only to avoid the hassle of setting up QGis...'
 }\end{displayquote}
+
+}
 
 The feedback that some of these visualizations are not entirely "new" is of course expected: tools such as QGis and Via do indeed provide some very nice visualization capabilities already. They are not online tools, however, and are not accessible to non-technical staff such as at a public outreach meeting.
 
